@@ -1,0 +1,147 @@
+<template>
+	<view>
+		<view class="youbian" v-show="onShowYbian">
+			<view class="youbianItem" @click="onChangeValue(1)" :class="{activeItem:modeValue==1}">
+				<i class="iconfont" :class="iconComputed(1,'icon-ESOP','icon-esop')"></i>
+				<view class="youbian—item-zi">
+					ESOP
+				</view>
+			</view>
+			<view class="youbianItem" @click="onChangeValue(2)" :class="{activeItem:modeValue==2}">
+				<i class="iconfont" :class="iconComputed(2,'icon-shebeijiance','icon-shebeijiance_o')"></i>
+				<view class="youbian—item-zi">
+					过站
+				</view>
+			</view>
+			<!-- <view class="youbianItem" @click="onChangeValue(3)" :class="{activeItem:modeValue==3}">
+				<i class="iconfont" :class="iconComputed(3,'icon-shujukanban','icon-shujukanban1')"></i>
+				<view class="youbianItem-zi">
+					大屏
+				</view>
+			</view> -->
+			
+			<view class="youbianItem qiehuan" @click="onShowYou" >
+				<i class="iconfont" :class="onshowABC" style="display: flex; align-items: center;justify-content: center;"></i>
+			</view>
+		</view>
+		
+		<view @click="onShowYou" class="ShowYou" v-show="!onShowYbian">
+			<i class="iconfont icon-qiehuanqizuo"></i>
+		</view>
+	</view>
+</template>
+
+<script>
+	import {mapMutations,mapState} from 'vuex'
+	export default {
+		data(){
+			return{
+				// modeValue:1,
+				onshowABC:"icon-qiehuanqiyou",
+				onShowYbian:true
+			}
+		},
+		computed:{
+			...mapState({
+				modeValue:state => state.home.modeValue
+			}),
+			iconComputed(){
+				return function(num,trueValue,falseValue){	
+					return this.modeValue == num ? trueValue : falseValue
+				}
+			}
+		},
+		watch:{
+			onshowABC:{
+				handler(newValue){
+					if(newValue == 'icon-qiehuanqizuo'){
+						this.onShowYbian = false
+						// this.zuobian = '100vw'
+						this.setZuobian('100vw')
+						// uni.setStorageSync('zuobian',JSON.stringify(this.zuobian))
+					}else if(newValue == 'icon-qiehuanqiyou'){
+						this.onShowYbian = true
+						uni.getSystemInfo({
+							success: (res) => {
+							  // this.zuobian = `${res.windowWidth-60}px`
+							  this.setZuobian(`${res.windowWidth-60}px`)
+							}
+						 });
+						 // uni.setStorageSync('zuobian',JSON.stringify(this.zuobian))
+					}
+				},
+				immediate:true
+			}
+		},
+		methods: {
+			...mapMutations(['setZuobian','setModelValue']),
+			onShowYou:function(){
+				this.onshowABC =='icon-qiehuanqiyou' ? this.onshowABC = 'icon-qiehuanqizuo' : this.onshowABC = 'icon-qiehuanqiyou'
+				 uni.setStorageSync('onshowABC',JSON.stringify(this.onshowABC))
+			},
+			onChangeValue(value){
+				// this.modeValue = value
+				this.setModelValue(value)
+				uni.setStorageSync('modeValue', value);
+			},
+			onInitialization(){
+				if(!!uni.getStorageSync('onshowABC')){
+					this.onshowABC = JSON.parse(uni.getStorageSync('onshowABC'))
+				}
+				 if(!!uni.getStorageSync('modeValue')){
+					this.setModelValue(uni.getStorageSync('modeValue'))
+				 }
+			}
+		},
+		mounted() {
+			this.onInitialization()
+		}
+	}
+	
+</script>
+
+<style scoped>
+	.youbian{
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 60px;
+		border-left:3px #000 solid;
+		z-index: 9999;
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+	
+	.youbianItem{width: 50px;text-align: center;margin: 10px 5px; padding: 5px 0;}
+	
+	.activeItem{box-shadow: 3px 3px 5px #ccc;background-color: #168cdc;color: #fff;}
+	
+	.youbian .iconfont{
+		width: 50px;
+		height: 50px;
+		font-size: 50px;
+	}
+	.qiehuan{
+		border: 3px #000 solid; 
+		margin: 2px;
+		padding: 0;
+		border-radius: 50%;
+		position: fixed;
+		bottom: 15px;
+	}
+	.ShowYou{
+		position: fixed;
+		right: -30px;
+		bottom: 15px;
+		z-index: 99999;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 60px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		padding: 5px;
+		box-sizing: border-box;
+		border-radius: 50%;
+		color: #fff;
+	}
+</style>

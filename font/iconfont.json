@@ -1,0 +1,135 @@
+{
+  "id": "4645889",
+  "name": "aaa",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5157",
+      "name": "切换器右",
+      "font_class": "qiehuanqiyou",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "5158",
+      "name": "切换器左",
+      "font_class": "qiehuanqizuo",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11241778",
+      "name": "数据看板",
+      "font_class": "shujukanban",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "36204503",
+      "name": "数据看板-copy",
+      "font_class": "shujukanban1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5387425",
+      "name": "设备检测",
+      "font_class": "shebeijiance",
+      "unicode": "ead2",
+      "unicode_decimal": 60114
+    },
+    {
+      "icon_id": "5387792",
+      "name": "设备检测_o",
+      "font_class": "shebeijiance_o",
+      "unicode": "eb57",
+      "unicode_decimal": 60247
+    },
+    {
+      "icon_id": "16120113",
+      "name": "ESOP",
+      "font_class": "ESOP",
+      "unicode": "e813",
+      "unicode_decimal": 59411
+    },
+    {
+      "icon_id": "25478138",
+      "name": "esop",
+      "font_class": "esop",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "553250",
+      "name": "缩放",
+      "font_class": "suofang",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "40611742",
+      "name": "缩放",
+      "font_class": "lujing-10",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5270582",
+      "name": "图片-产品详情",
+      "font_class": "tupian",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "6102940",
+      "name": "图片",
+      "font_class": "tupian1",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "6851521",
+      "name": "操作",
+      "font_class": "caozuo",
+      "unicode": "e6d7",
+      "unicode_decimal": 59095
+    },
+    {
+      "icon_id": "11006264",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "12250141",
+      "name": "公告",
+      "font_class": "gonggao",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "21243072",
+      "name": "公告",
+      "font_class": "gonggao1",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "21591063",
+      "name": "操作平台",
+      "font_class": "caozuopingtai",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "29959512",
+      "name": "视频",
+      "font_class": "shipin1",
+      "unicode": "100d9",
+      "unicode_decimal": 65753
+    }
+  ]
+}
